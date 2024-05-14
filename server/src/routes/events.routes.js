@@ -3,6 +3,8 @@ import { eventController } from "../controllers/event.controller.js";
 
 const eventRouter = express.Router({ strict: true });
 
-eventRouter.post("/", eventController.getEvents);
+eventRouter.get("/", eventController.getEvents);
+eventRouter.post("/", eventController.createEvent);
+// eventRouter.delete("/", eventController.deleteEvents);
 
 export default eventRouter;

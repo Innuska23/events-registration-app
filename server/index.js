@@ -1,30 +1,3 @@
-// const express = require("express");
-// const mongoose = require("mongoose");
-// const config = require("config");
-// const eventRouter = require("./routes/events.routes");
-// const app = express();
-// const PORT = config.get("serverPort");
-
-// const Event = require("./models/Events");
-
-// app.use(express.json());
-// app.use("/api/events", eventRouter);
-
-// const start = async () => {
-//   try {
-//     await mongoose.connect(config.get("dbUrl"));
-
-//     app.listen(PORT, () => {
-//       console.log("Server started on port ", PORT);
-//     });
-//   } catch (e) {
-//     console.error("Error starting server:", e.message);
-//     process.exit(1);
-//   }
-// };
-
-// start();
-
 import mongoose from "mongoose";
 import "dotenv/config";
 

@@ -2,7 +2,11 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 16px;
+  width: calc(30% - 15px);
+  margin-right: 16px;
   margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
@@ -24,4 +28,14 @@
 .organizer {
   color: #333;
   font-weight: bold;
+}
+
+.cardFooter {
+  margin-top: auto;
+}
+
+.buttonWrapper {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
 }
