@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { eventsApi } from "./api/eventsApi";
-import { registrationApi } from "./api/registrationApi";
+import { participantApi } from "./api/participantApi";
 
-const APIS = [eventsApi, registrationApi];
+const APIS = [eventsApi, participantApi];
 
 const apiReducers = APIS.reduce((acc, { reducerPath, reducer }) => {
   return {

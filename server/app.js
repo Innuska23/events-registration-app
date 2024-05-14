@@ -2,8 +2,7 @@ import express from "express";
 import cors from "cors";
 
 import eventRoutes from "./src/routes/events.routes.js";
-import registrationRouter from "./src/routes/registration.routes.js";
-//import participantsRouter from "./src/routes/participant.routes.js";
+import participantsRouter from "./src/routes/participant.routes.js";
 
 const app = express();
 
@@ -11,8 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/events", eventRoutes);
-app.use("/api/registration", registrationRouter);
-// app.use("/api", participantsRouter);
+app.use("/api/participants", participantsRouter);
 
 app.use((err, req, res, next) => {
   const { status = 500, message = "Server error" } = err;

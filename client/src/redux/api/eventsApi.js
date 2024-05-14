@@ -11,7 +11,15 @@ export const eventsApi = createApi({
         };
       },
     }),
+
+    eventRegistration: build.mutation({
+      query: (formData) => ({
+        url: "api/events/registration",
+        body: formData,
+        method: "POST",
+      }),
+    }),
   }),
 });
 
-export const { useEventsListQuery } = eventsApi;
+export const { useEventsListQuery, useEventRegistrationMutation } = eventsApi;

@@ -1,0 +1,19 @@
+.participantsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.participantsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.participantCard {
+  border: 1px solid var(--color-border);
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+  text-align: start;
+}

@@ -1,26 +1,22 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useParams } from "react-router-dom";
 import ParticipantsList from "../../components/ParticipantsList/ParticipantsList";
+import { useParticipantByEventQuery } from "../../redux/api/participantApi";
+import Loader from "../../components/Loader/Loader";
 
-const EventParticipants = ({ eventId }) => {
-  const [participants, setParticipants] = useState([]);
+const EventParticipants = () => {
+  const { id } = useParams();
+  const { data, isLoading } = useParticipantByEventQuery(id);
 
-  useEffect(() => {
-    const fetchParticipants = async () => {
-      try {
-        const res = await axios.get(`/api/events/${eventId}/participants`);
-        setParticipants(res.data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchParticipants();
-  }, [eventId]);
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <>
-      <h1>Event Participants</h1>
-      <ParticipantsList participants={participants} />
+      <ParticipantsList
+        participants={data.participants}
+        eventName={data.event.title}
+      />
     </>
   );
 };

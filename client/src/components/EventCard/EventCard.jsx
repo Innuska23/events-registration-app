@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 
 import styles from "./EventCard.module.css";
-import { NavLink } from "react-router-dom";
 
 const EventCard = ({ event }) => {
   return (

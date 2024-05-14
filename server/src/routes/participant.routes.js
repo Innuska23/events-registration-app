@@ -4,8 +4,8 @@ import { participantsController } from "../controllers/participant.controller.js
 const participantsRouter = express.Router({ strict: true });
 
 participantsRouter.get(
-  "/:eventId/participants",
-  participantsController.getParticipants
+  "/:eventId",
+  participantsController.getParticipantsByEvent
 );
 
 export default participantsRouter;

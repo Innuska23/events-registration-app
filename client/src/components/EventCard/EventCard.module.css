@@ -1,5 +1,5 @@
 .eventCard {
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border);
   border-radius: 4px;
   padding: 16px;
   width: calc(30% - 15px);
@@ -16,7 +16,7 @@
 }
 
 .description {
-  color: #666;
+  color: var(--color-description);
   margin-bottom: 8px;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .organizer {
-  color: #333;
+  color: var(--color-organizer);
   font-weight: bold;
 }
 
