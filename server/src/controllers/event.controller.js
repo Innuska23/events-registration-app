@@ -60,8 +60,7 @@ const eventRegistration = async (req, res) => {
     if (!isValidObjectId(id))
       return res.status(400).json({ message: `Invalid event id` });
 
-    const eventId = new mongoose.mongo.ObjectId(id);
-    const existEvent = await Event.findById(eventId);
+    const existEvent = await Event.findById(id);
 
     if (!existEvent)
       return res.status(400).json({ message: `Event not found` });
@@ -75,7 +74,7 @@ const eventRegistration = async (req, res) => {
     }
 
     const registration = new Participant({
-      event: eventId,
+      event: existEvent._id,
       fullName,
       email,
       dateOfBirth,
