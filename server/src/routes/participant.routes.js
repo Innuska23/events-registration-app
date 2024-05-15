@@ -8,4 +8,9 @@ participantsRouter.get(
   participantsController.getParticipantsByEvent
 );
 
+participantsRouter.get(
+  "/:eventId/statistic",
+  participantsController.getParticipantsByEventStatistics
+);
+
 export default participantsRouter;

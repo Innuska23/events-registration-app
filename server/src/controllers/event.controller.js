@@ -5,13 +5,33 @@ import Event from "../models/events.js";
 import Participant from "../models/participant.js";
 
 const getEvents = async (req, res) => {
-  const events = await Event.find();
+  if (
+    (req.query.field || req.query.direction) &&
+    (!Object.keys(Event.schema.paths).includes(req.query.field) ||
+      !(req.query.direction === "desc" || req.query.direction === "asc"))
+  ) {
+    throw HttpError(400, "Sort params invalid");
+  }
+
+  const offset = req.query.offset || 0;
+  const limit = req.query.limit || 12;
+
+  const countEvents = await Event.countDocuments();
+
+  const events = req.query.field
+    ? await Event.find()
+        .sort({
+          [req.query.field]: req.query.direction,
+        })
+        .skip(offset)
+        .limit(limit)
+    : await Event.find().skip(offset).limit(limit);
 
   if (!events) {
     throw HttpError(404, "Events not found");
   }
 
-  return res.json(events);
+  return res.json({ count: countEvents, limit: 12, events });
 };
 
 const createEvent = async (req, res) => {

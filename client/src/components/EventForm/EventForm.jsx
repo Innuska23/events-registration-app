@@ -1,146 +1,12 @@
-// import { Formik, Form, Field, ErrorMessage } from "formik";
-
-// import styles from "./EventForm.module.css";
-// import { useNavigate, useParams } from "react-router-dom";
-// import { useEffect } from "react";
-
-// import { toast } from "react-toastify";
-// import { useEventRegistrationMutation } from "../../redux/api/eventsApi";
-
-// const RegistrationForm = () => {
-//   const navigate = useNavigate();
-//   const { id } = useParams();
-//   const [register, { error }] = useEventRegistrationMutation();
-
-//   useEffect(() => {
-//     if (error) {
-//       console.error(error);
-//       if (error.data && error.data.message) {
-//         toast.error(error.data.message);
-//       } else {
-//         toast.error("Something went wrong");
-//       }
-//     }
-//   }, [error]);
-
-//   const handleSubmit = async (values, { resetForm }) => {
-//     try {
-//       const response = await register({ ...values, id });
-//       toast.success(response.data.message);
-//       resetForm();
-//       navigate("/events", { replace: true });
-//     } catch (e) {
-//       console.log(e);
-//     }
-//   };
-
-//   return (
-//     <>
-//       <Formik
-//         initialValues={{
-//           fullName: "",
-//           email: "",
-//           dateOfBirth: "",
-//           heardAboutEvent: "",
-//         }}
-//         onSubmit={handleSubmit}
-//         validate={(values) => {
-//           const errors = {};
-//           if (!values.fullName) {
-//             errors.fullName = "*Field is required";
-//           }
-//           if (!values.email) {
-//             errors.email = "*Field is required";
-//           } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-//             errors.email = "*Invalid email address";
-//           }
-//           if (!values.dateOfBirth) {
-//             errors.dateOfBirth = "*Field is required";
-//           }
-//           if (!values.heardAboutEvent) {
-//             errors.heardAboutEvent = "*Choose one";
-//           }
-//           return errors;
-//         }}
-//       >
-//         {({ isSubmitting }) => (
-//           <Form className={styles.formContainer}>
-//             <div>
-//               <label>Full Name:</label>
-//               <Field type="text" name="fullName" />
-//               <ErrorMessage
-//                 name="fullName"
-//                 component="div"
-//                 className={styles.error}
-//               />
-//             </div>
-//             <div>
-//               <label>Email:</label>
-//               <Field type="email" name="email" />
-//               <ErrorMessage
-//                 name="email"
-//                 component="div"
-//                 className={styles.error}
-//               />
-//             </div>
-//             <div>
-//               <label>Date of Birth:</label>
-//               <Field type="date" name="dateOfBirth" />
-//               <ErrorMessage
-//                 name="dateOfBirth"
-//                 component="div"
-//                 className={styles.error}
-//               />
-//             </div>
-//             <div>
-//               <label>Where did you hear about this event?</label>
-//               <div className={styles.formLabel}>
-//                 <label>
-//                   <Field
-//                     type="radio"
-//                     name="heardAboutEvent"
-//                     value="Social media"
-//                   />
-//                   Social media
-//                 </label>
-//                 <label>
-//                   <Field type="radio" name="heardAboutEvent" value="Friends" />
-//                   Friends
-//                 </label>
-//                 <label>
-//                   <Field
-//                     type="radio"
-//                     name="heardAboutEvent"
-//                     value="Found myself"
-//                   />
-//                   Found myself
-//                 </label>
-//               </div>
-//               <ErrorMessage
-//                 name="heardAboutEvent"
-//                 component="div"
-//                 className={styles.error}
-//               />
-//             </div>
-//             <button type="submit" disabled={isSubmitting}>
-//               Register
-//             </button>
-//           </Form>
-//         )}
-//       </Formik>
-//     </>
-//   );
-// };
-
-// export default RegistrationForm;
-import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
-import styles from "./EventForm.module.css";
-import { toast } from "react-toastify";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useEventRegistrationMutation } from "../../redux/api/eventsApi";
+import { toast } from "react-toastify";
+
+import styles from "./EventForm.module.css";
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
@@ -242,6 +108,7 @@ const RegistrationForm = () => {
             className={styles.error}
           />
         </div>
+
         <div>
           <label>Where did you hear about this event?</label>
           <div className={styles.formLabel}>
@@ -264,6 +131,7 @@ const RegistrationForm = () => {
             className={styles.error}
           />
         </div>
+
         <button type="submit" disabled={isSubmitting}>
           Register
         </button>

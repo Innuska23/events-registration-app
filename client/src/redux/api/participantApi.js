@@ -5,13 +5,28 @@ export const participantApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
   endpoints: (build) => ({
     participantByEvent: build.query({
-      query: (eventId) => {
+      query: ({ eventId, search }) => {
         return {
           url: `api/participants/${eventId}`,
+          params: search && {
+            search,
+          },
+        };
+      },
+    }),
+
+    participantByEventStatistic: build.query({
+      query: ({ eventId }) => {
+        return {
+          url: `api/participants/${eventId}/statistic`,
         };
       },
     }),
   }),
 });
 
-export const { useParticipantByEventQuery } = participantApi;
+export const {
+  useParticipantByEventQuery,
+  useLazyParticipantByEventQuery,
+  useParticipantByEventStatisticQuery,
+} = participantApi;

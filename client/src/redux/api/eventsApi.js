@@ -5,9 +5,10 @@ export const eventsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
   endpoints: (build) => ({
     eventsList: build.query({
-      query: () => {
+      query: (params) => {
         return {
           url: `api/events`,
+          params,
         };
       },
     }),
@@ -22,4 +23,5 @@ export const eventsApi = createApi({
   }),
 });
 
-export const { useEventsListQuery, useEventRegistrationMutation } = eventsApi;
+export const { useLazyEventsListQuery, useEventRegistrationMutation } =
+  eventsApi;

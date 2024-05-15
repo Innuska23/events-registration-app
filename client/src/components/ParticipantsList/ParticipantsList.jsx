@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
+
 import styles from "./ParticipantsList.module.css";
 
-const ParticipantsList = ({ participants, eventName }) => {
+const ParticipantsList = ({ participants }) => {
   return (
     <div className={styles.participantsWrapper}>
-      <h2>{eventName} Participants</h2>
       {participants && participants.length > 0 ? (
         <div className={styles.participantsContainer}>
-          {participants.map((participant) => (
+          {participants?.map((participant) => (
             <div key={participant._id} className={styles.participantCard}>
               <p>{participant.fullName}</p>
               <p>{participant.email}</p>
@@ -29,7 +29,6 @@ ParticipantsList.propTypes = {
       email: PropTypes.string.isRequired,
     })
   ),
-  eventName: PropTypes.string.isRequired,
 };
 
 export default ParticipantsList;

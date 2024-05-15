@@ -9,6 +9,4 @@ eventRouter.post("/", eventController.createEvent);
 
 eventRouter.post("/registration", eventController.eventRegistration);
 
-// eventRouter.delete("/", eventController.deleteEvents);
-
 export default eventRouter;

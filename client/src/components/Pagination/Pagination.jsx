@@ -37,6 +37,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         &lt;
       </button>
       {renderPageNumbers()}
+
       <button
         className={styles.arrowButton}
         disabled={currentPage === totalPages}

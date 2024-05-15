@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  min-width: 500px;
+  padding: 8px 12px;
+  border: 2px solid var(--bg-blue);
+  border-radius: 4px;
+  outline: none;
+  font-size: 16px;
+  color: var(--color-organizer);
+  background-color: var(--color-white);
+  transition: border-color 0.3s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.search::placeholder {
+  color: var(--color-description);
+}
+
+.search:focus {
+  border-color: var(--bg-blue-hover);
+}
