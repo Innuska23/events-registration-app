@@ -7,8 +7,16 @@ import Loader from "../../components/Loader/Loader";
 import { useOnScreen } from "../../hooks/useOnScreen";
 
 import styles from "./EventsBoard.module.css";
+import Button from "../../components/Button/Button";
+import ToggleSwitch from "../../components/ToggleSwitch/ToggleSwitch";
 
 const DEFAULT_ITEM_PER_PAGE = 9;
+
+const SORT_BUTTONS = [
+  { label: "Title", sortKey: "title" },
+  { label: "Event date", sortKey: "date" },
+  { label: "Organizer", sortKey: "organizer" },
+];
 
 const EventsBoard = () => {
   const [sortEvent, setSortEvent] = useState();
@@ -84,31 +92,32 @@ const EventsBoard = () => {
 
   return (
     <>
-      <div className={styles.eventsWrapper}>
+      <div className={styles.eventsHeader}>
         <h1>Events</h1>
-
-        <div className={styles.buttonWrapper}>
-          <div>
-            <button
-              className={styles.button}
-              onClick={handleSortEvent("title")}
-            >
-              Title {getSortDirection("title")}
-            </button>
-            <button className={styles.button} onClick={handleSortEvent("date")}>
-              Event date {getSortDirection("date")}
-            </button>
-            <button
-              className={styles.button}
-              onClick={handleSortEvent("organizer")}
-            >
-              Organizer {getSortDirection("organizer")}
-            </button>
+        <div className={styles.eventHeaderContainer}>
+          <div className={styles.buttonWrapper}>
+            <p className={styles.buttonWrapperText}>Sort events by:</p>
+            <div>
+              <div className={styles.buttonGroup}>
+                {SORT_BUTTONS.map((item) => (
+                  <Button
+                    className={styles.sortButton}
+                    onClick={handleSortEvent(item.sortKey)}
+                    key={item.sortKey}
+                  >
+                    {item.label} {getSortDirection(item.sortKey)}
+                  </Button>
+                ))}
+              </div>
+            </div>
           </div>
+
           <div>
-            <button className={styles.button} onClick={toggleMode}>
-              Toggle Mode ({mode})
-            </button>
+            <ToggleSwitch
+              label="View Mode:"
+              checked={mode === "pagination"}
+              onChange={toggleMode}
+            />
           </div>
         </div>
 

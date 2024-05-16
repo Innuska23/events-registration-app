@@ -41,15 +41,14 @@ const EventParticipants = () => {
       {!isStatisticLoading && !!statisticData?.length && (
         <RegistrationStat chartData={statisticData} />
       )}
-      {!!data?.participants?.length && !isFetching && (
-        <input
-          className={styles.search}
-          type="text"
-          value={searchName}
-          onChange={handleInputChange}
-          placeholder="Search..."
-        />
-      )}
+
+      <input
+        className={styles.search}
+        type="text"
+        value={searchName}
+        onChange={handleInputChange}
+        placeholder="Search..."
+      />
 
       {isFetching && <Loader />}
 

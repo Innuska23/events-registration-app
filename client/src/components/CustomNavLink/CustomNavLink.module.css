@@ -1,0 +1,31 @@
+.navLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 2px;
+  border: none;
+  border-radius: 4px;
+  height: 45px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 160%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .navLink {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+.primary {
+  color: var(--bg-blue);
+}
+
+.primary:hover,
+.primary:active,
+.primary:focus {
+  box-shadow: 0 4px 18px 0 var(--light-grey);
+}

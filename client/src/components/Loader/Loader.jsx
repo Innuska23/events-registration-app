@@ -5,7 +5,7 @@ const Loader = () => (
     <Circles
       height="80"
       width="80"
-      color="#007bff"
+      color="#3b71ca"
       ariaLabel="circles-loading"
       wrapperClass=""
       visible={true}

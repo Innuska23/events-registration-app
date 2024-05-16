@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
 
 import styles from "./EventCard.module.css";
+import CustomNavLink from "../CustomNavLink/CustomNavLink";
 
 const EventCard = ({ event }) => {
   return (
@@ -15,8 +15,10 @@ const EventCard = ({ event }) => {
       <div className={styles.cardFooter}>
         <p className={styles.organizer}>Organizer: {event.organizer}</p>
         <div className={styles.buttonWrapper}>
-          <NavLink to={`/registration/${event._id}`}>Register</NavLink>
-          <NavLink to={`/view/${event._id}`}>View</NavLink>
+          <CustomNavLink to={`/registration/${event._id}`}>
+            Register
+          </CustomNavLink>
+          <CustomNavLink to={`/view/${event._id}`}>View</CustomNavLink>
         </div>
       </div>
     </div>

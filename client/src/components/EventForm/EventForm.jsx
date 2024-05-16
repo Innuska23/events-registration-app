@@ -83,7 +83,7 @@ const RegistrationForm = () => {
       <Form className={styles.formContainer}>
         <div>
           <label>Full Name:</label>
-          <Field type="text" name="fullName" />
+          <Field type="text" name="fullName" className={styles.field} />
           <ErrorMessage
             name="fullName"
             component="div"
@@ -92,7 +92,7 @@ const RegistrationForm = () => {
         </div>
         <div>
           <label>Email:</label>
-          <Field type="email" name="email" />
+          <Field type="email" name="email" className={styles.field} />
           <ErrorMessage name="email" component="div" className={styles.error} />
         </div>
         <div>
@@ -101,6 +101,7 @@ const RegistrationForm = () => {
             type="date"
             name="dateOfBirth"
             max={new Date().toISOString().split("T")[0]}
+            className={styles.field}
           />
           <ErrorMessage
             name="dateOfBirth"

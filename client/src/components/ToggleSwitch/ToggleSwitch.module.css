@@ -1,0 +1,139 @@
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .toggleContainer {
+    flex-direction: row;
+  }
+}
+
+.label {
+  font-weight: 500;
+}
+
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggleInput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleLabel {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-border);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.toggleLabel:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--color-white);
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.toggleInput:checked + .toggleLabel {
+  background-color: var(--bg-blue);
+}
+
+.toggleInput:focus + .toggleLabel {
+  box-shadow: 0 0 1px var(--bg-blue);
+}
+
+.toggleInput:checked + .toggleLabel:before {
+  transform: translateX(26px);
+}
+
+.toggleText {
+  margin-left: 0;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--body-text-color);
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.toggleInput:checked ~ .toggleText {
+  color: var(--bg-blue);
+}
+
+.toggleInput:checked ~ .toggleText::before {
+  content: "Pagination";
+}
+
+.toggleInput:not(:checked) ~ .toggleText::before {
+  content: "Infinite Scroll";
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .toggleContainer {
+    gap: 12px;
+  }
+
+  .toggleText {
+    margin-left: 0;
+    margin-top: 2px;
+    font-size: 10px;
+  }
+
+  .toggleSwitch {
+    width: 40px;
+    height: 24px;
+  }
+
+  .toggleLabel:before {
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+  }
+
+  .toggleInput:checked + .toggleLabel:before {
+    transform: translateX(16px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .toggleContainer {
+    flex-direction: row;
+  }
+
+  .toggleText {
+    margin-left: 12px;
+    margin-top: 8px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .toggleContainer {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .toggleText {
+    margin-left: 0px;
+    font-size: 16px;
+  }
+}

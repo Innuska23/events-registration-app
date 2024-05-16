@@ -1,8 +1,15 @@
 .formContainer {
-  max-width: 400px;
+  min-width: 320px;
   padding: 20px;
-  border: 1px solid var(--color-border);
+  font-family: "Roboto";
+  box-shadow: 0 10px 20px -2px rgba(0, 0, 0, 0.04),
+    0 2px 15px -3px var(--checkbox-focused-shadow);
+  background: var(--white);
+  color: var(--body-text-color);
   border-radius: 8px;
+  display: block;
+  font-size: 12px;
+  box-sizing: border-box;
 }
 
 .formContainer label {
@@ -16,8 +23,18 @@
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
-  border: 1px solid var(--color-border);
+  display: block;
+  outline: none;
+  box-sizing: border-box;
+  border: 1px solid var(--bg-blue);
   border-radius: 4px;
+}
+
+.formContainer input[type="text"]:focus,
+.formContainer input[type="email"]:focus,
+.formContainer input[type="date"]:focus {
+  outline: 1px solid var(--bg-blue);
+  border: 1px solid var(--bg-blue);
 }
 
 .formContainer input[type="radio"] {
@@ -25,25 +42,50 @@
 }
 
 .formContainer button[type="submit"] {
-  padding: 10px 20px;
+  padding: 8px 8px;
   background-color: var(--bg-blue);
   color: var(--color-white);
   border: none;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
   border-radius: 4px;
   cursor: pointer;
+  font-family: "Roboto";
+  height: 36px;
+  width: 124px;
+  transition: all 0.2s ease-in-out;
 }
 
 .formContainer button[type="submit"]:hover {
-  background-color: var(--bg-blue-hover);
+  box-shadow: 0 4px 18px 0 var(--bg-blue);
 }
 
 .formLabel {
   display: flex;
-  gap: 15px;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
 .error {
   color: var(--color-red);
   margin-bottom: 5px;
-  font-style: italic;
+}
+
+@media (min-width: 480px) {
+  .formContainer {
+    font-size: 14px;
+  }
+
+  .formLabel {
+    gap: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .formContainer {
+    font-size: 16px;
+  }
 }

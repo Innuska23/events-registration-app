@@ -1,0 +1,55 @@
+.button {
+  padding: 4px px;
+  color: var(--color-white);
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.large {
+  height: 45px;
+  font-size: 12px;
+  line-height: 160%;
+}
+
+.mid {
+  height: 24px;
+  width: 72px;
+  font-size: 8px;
+  line-height: 150%;
+}
+
+.primary {
+  background: var(--bg-blue);
+  box-shadow: 0 4px 9px -4px var(--bg-blue);
+}
+
+.danger {
+  background: var(--color-red);
+  box-shadow: 0 4px 9px -4px var(--color-red);
+}
+
+.primary:hover,
+.primary:active,
+.primary:focus {
+  box-shadow: 0 4px 18px 0 var(--bg-blue);
+}
+
+.danger:hover,
+.danger:active,
+.danger:focus {
+  box-shadow: 0 4px 18px 0 var(--color-red);
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 8px 16px;
+  }
+
+  .mid {
+    font-size: 12px;
+  }
+}

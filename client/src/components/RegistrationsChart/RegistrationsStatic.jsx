@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from "recharts";
 
 import styles from "./RegistrationsStatic.module.css";
@@ -14,14 +15,16 @@ import styles from "./RegistrationsStatic.module.css";
 const RegistrationStat = ({ chartData }) => {
   return (
     <div className={styles.staticWrapper}>
-      <LineChart width={600} height={400} data={chartData}>
-        <XAxis dataKey="date" />
-        <YAxis />
-        <CartesianGrid strokeDasharray="3 3" />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="participant" stroke="#0056b3" />
-      </LineChart>
+      <ResponsiveContainer>
+        <LineChart width="100%" height={250} data={chartData}>
+          <XAxis dataKey="date" />
+          <YAxis />
+          <CartesianGrid strokeDasharray="3 3" />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="participant" stroke="#0056b3" />
+        </LineChart>
+      </ResponsiveContainer>
     </div>
   );
 };
