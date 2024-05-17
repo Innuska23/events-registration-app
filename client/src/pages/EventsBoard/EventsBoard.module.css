@@ -15,32 +15,48 @@
 
 .eventHeaderContainer {
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
+  flex-direction: column;
 }
 
-.buttonWrapper {
+.buttonWrapper,
+.displayModeWrapper {
   display: flex;
   gap: 12px;
-  align-items: center;
-  justify-content: space-between;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .buttonGroup {
   display: flex;
-  gap: 8px;
-  flex-direction: column;
+  /* gap: 8px; */
 }
 
-.sortButton {
+.buttonGroup .sortButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-width: 48px;
+  border-radius: 0px;
 }
 
-.toggleMode {
+.sortButton:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.sortButton:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+.displayMode {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   min-width: 225px;
 }
 
-.buttonWrapperText {
+.buttonWrapperText,
+.displayModeText {
   font-weight: 500;
   line-height: 120%;
 }
@@ -52,6 +68,12 @@
 }
 
 @media (min-width: 768px) {
+  .eventHeaderContainer {
+    gap: 24px;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
   .eventsHeader {
     gap: 24px;
   }
@@ -60,21 +82,10 @@
     flex-direction: row;
   }
 
-  .sortButton {
+  .buttonGroup .sortButton {
     min-width: 124px;
     min-height: 36px;
     font-size: 12px;
-  }
-
-  .buttonGroup {
-    justify-content: space-between;
-    flex-direction: row;
-    gap: 16px;
-  }
-
-  .buttonWrapper {
-    flex-direction: row;
-    gap: 24px;
   }
 }
 

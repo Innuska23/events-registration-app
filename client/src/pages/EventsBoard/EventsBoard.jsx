@@ -80,7 +80,7 @@ const EventsBoard = () => {
 
   const getSortDirection = (field) => {
     if (field === sortEvent?.field) {
-      return sortEvent.direction === "asc" ? "↑" : "↓";
+      return sortEvent.direction === "asc" ? "⇧" : "⇩";
     }
   };
 
@@ -103,25 +103,31 @@ const EventsBoard = () => {
                   <Button
                     className={styles.sortButton}
                     onClick={handleSortEvent(item.sortKey)}
+                    variant={
+                      sortEvent?.field === item.sortKey ? "default" : "outline"
+                    }
                     key={item.sortKey}
                   >
-                    {item.label} {getSortDirection(item.sortKey)}
+                    {getSortDirection(item.sortKey)} {item.label}
                   </Button>
                 ))}
               </div>
             </div>
           </div>
 
-          <div>
-            <ToggleSwitch
-              label="View Mode:"
-              checked={mode === "pagination"}
-              onChange={toggleMode}
-            />
+          <div className={styles.displayModeWrapper}>
+            <p className={styles.displayModeText}>Display mode:</p>
+
+            <div className={styles.displayMode}>
+              <span>Pagination</span>
+              <ToggleSwitch
+                checked={mode !== "pagination"}
+                onChange={toggleMode}
+              />
+              <span>Infinity scroll</span>
+            </div>
           </div>
         </div>
-
-        {isLoading || (mode === "pagination" && isFetching && <Loader />)}
 
         <div className={styles.eventsContainer}>
           {eventData?.events?.map((event) => (
@@ -136,6 +142,8 @@ const EventsBoard = () => {
             onPageChange={handlePageChange}
           />
         )}
+
+        {(isLoading || isFetching) && <Loader />}
       </div>
       <div ref={ref} style={{ maxWidth: 10 }} />
     </>

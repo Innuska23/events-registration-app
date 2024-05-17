@@ -32,9 +32,9 @@
   box-shadow: 0 4px 9px -4px var(--color-red);
 }
 
-.primary:hover,
-.primary:active,
-.primary:focus {
+.default .primary:hover,
+.default .primary:active,
+.default .primary:focus {
   box-shadow: 0 4px 18px 0 var(--bg-blue);
 }
 
@@ -42,6 +42,20 @@
 .danger:active,
 .danger:focus {
   box-shadow: 0 4px 18px 0 var(--color-red);
+}
+
+.outline {
+  background: none;
+  border: 2px solid var(--bg-blue);
+  color: var(--bg-blue);
+  box-shadow: none;
+}
+
+.outline .primary:hover,
+.outline .primary:active,
+.outline .primary:focus {
+  box-shadow: none;
+  background: none;
 }
 
 @media (min-width: 768px) {

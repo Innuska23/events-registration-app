@@ -29,7 +29,7 @@ const Button = ({
 
 Button.propTypes = {
   color: PropTypes.oneOf(["primary", "danger"]),
-  variant: PropTypes.oneOf(["default", "rounded"]),
+  variant: PropTypes.oneOf(["default", "outline"]),
   size: PropTypes.oneOf(["large", "mid", "small"]),
   className: PropTypes.string,
   children: PropTypes.node,
